@@ -190,12 +190,12 @@ Data quality and validation tests I conducted are as below:
 ```sql
 /*
 # Count the total number of rows / records in the SQL View (Expected 100)
+*/
 
 SELECT
 	COUNT(*) as row_count
 FROM view_uk_youtubers;
 
-*/
 ```
 ### Output
 ![row_count_check](assets/images/row_count_check)
