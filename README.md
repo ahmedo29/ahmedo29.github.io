@@ -198,7 +198,7 @@ FROM view_uk_youtubers;
 
 ```
 ### Output
-![row_count_check](assets/images/row_count_check)
+![row_count_check](assets/images/row_count_check.png)
 
 ## Column count check
 ### SQL Query
@@ -213,7 +213,7 @@ FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'view_uk_youtubers';
 ```
 ### Output
-![column_count_check](assets/images/column_count_check)
+![column_count_check](assets/images/column_count_check.png)
 
 ## Data type check
 ### SQL Query
@@ -229,7 +229,7 @@ WHERE TABLE_NAME = 'view_uk_youtubers';
 
 ```
 ### Output
-![data_type_check](assets/images/data_type_check)
+![data_type_check](assets/images/data_type_check.png)
 
 ## Duplicate count check
 ### SQL Query
@@ -249,4 +249,4 @@ HAVING COUNT(*) > 1;
 
 ```
 ### Output
-![duplicate_count_check](assets/images/duplicate_count_check)
+![duplicate_count_check](assets/images/duplicate_count_check.png)
