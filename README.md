@@ -7,7 +7,7 @@
 - [Stages](#stages)
   - [Mockup](#mockup)
   - [Tools](#tools)
--[Development](#development)
+  - [Development](#development)
   - [Pseudocode](#pseudocode)
   - [Data Exploration](#data-exploration)
   - [Data Cleaning](#data-cleaning)
