@@ -81,6 +81,7 @@ To answer the questions listed above, we can use a variety of visualisations, su
 4. Horizontal bar chart
 5. Filters
 
+![dashboard-mockuo](assets/images/dashboard mockup.png)
 # Development
 
 # Testing
