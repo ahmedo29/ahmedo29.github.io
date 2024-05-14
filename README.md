@@ -82,7 +82,101 @@ To answer the questions listed above, we can use a variety of visualisations, su
 5. Filters
 
 ![dashboard_mockuo](assets/images/dashboard_mockup.png)
+
+## Tools
+
+| Tool | Purpose |
+| --- | --- |
+| Excel | Exploring the data |
+| SQL Server | Cleaning, testing, and analysing the data |
+| Power BI | Visualising the data via interactive dashboards |
+| Mokkup AI | Designing the wireframe/mockup of the dashboard | 
+| GitHub | Hosting the project documentation and version control |
+
 # Development
+## Tools
+What is the approach you will use to create a solution from start to finish?
+
+1. Get the data
+2. Explore the data using Microsoft Excel
+3. Load the data into SQL
+4. Clean the data with SQL
+5. Test the data with SQL
+6. Visualise the data in Power Bi
+7. Generate the findings based on the insights
+8. Write the documentation
+9. Publish the data to GitHub
+
+## Data Exploration Notes
+* What are your thoughts and observations with this dataset?
+1. There are four columns which contain the data we need for this analysis, those columns being channel id, total subscribers, total views, and total videos uploaded
+2. The channel id column contains the channel name and their ID, which are seperated by the @ symbol, so I will need to extract the channel name from this column
+3. Some of the cells and header names are in a different language, so I need to cinfirm if these columns are needed, and if they are, how will I address them
+4. We have more data than we actually need, so I can remove the unneeded data
+
+## Data Cleaning
+* What should the clean data look like?
+
+The clean data should be structured and ready for analysis, and it should meet the following criteria and constraints:
+1. Olnly relevent columns should be retained
+2. All data types should be appropriate for the contents of each column
+3. No NULL values in any of the columns
+
+Below is a table outlining the constraints on our cleaned dataset:
+
+| Property | Description |
+| --- | --- |
+| Number of Rows | 100 |
+| Number of Columns | 4 |
+
+Below is a tabular representation of the expected schema for the clean data:
+
+| Column Name | Data Type | Nullable |
+| --- | --- | --- |
+| channel_name | VARCHAR | NO |
+| total_subscribers | INTEGER | NO |
+| total_views | INTEGER | NO |
+| total_videos | INTEGER | NO |
+
+* What are the steps needed to clean and shape the data into the desired format?
+1. Remove unnecessary columns
+2. Extract YouTube channel names from the first column
+3. Rename the columns using suitable aliases
+
+### Transforming the data
+```sql
+/*
+# 1. Select the required columns
+# 2. Extract the channel name from the 'NOMBRE' column
+*/
+
+-- 1.
+SELECT
+	SUBSTRING(nombre, 1, CHARINDEX('@', nombre) -1) AS channel_name,  -- 2.
+	total_subscribers,
+	total_videos,
+	total_views
+FROM top_uk_youtubers;
+```
+### Create the SQL view
+Creating a view allows us to only work with the data we need for our analysis
+
+```sql
+/*
+# 1. Create a view to store the data we have transformed
+# 2. CAST the extracted channel name to the VARCHAR(100) data type
+# 3. SELECT only the required columns from the top_uk_youtubers database
+*/
+
+CREATE VIEW view_uk_youtubers AS
+
+SELECT
+	CAST(SUBSTRING(nombre, 1, CHARINDEX('@', nombre) -1) AS VARCHAR(100)) AS channel_name,
+	total_subscribers,
+	total_views,
+	total_videos
+FROM top_uk_youtubers;
+```
 
 # Testing
 
