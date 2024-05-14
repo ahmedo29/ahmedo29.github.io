@@ -53,3 +53,36 @@ We need data on the top UK YouTubers in 2024, which include several key informat
 * the data has been sources from Kaggle, [click here to find the data](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
 
 # Stages
+The stages for this project will be;
+* Design
+* Development
+* Testing
+* Analysis
+
+# Design
+## Dashboard components required
+* What should the dashboard contain based on the requirements provided?
+
+To understand what the dashboard should contain, we need to figure out what questions we need the dashboard to answer, which will help provide the data to make data driven decisions for the marketing campaigns. Some of the quesions are as below:
+* Who are the top 10 YouTubers based on subscriber count?
+* Which channels have uploaded the most videos?
+* Which channels have the most views accumulated?
+* Which channels have the highest average views per video?
+* Which channels have the highest views per subscriber ratio?
+* Which channels have the highest subscriber engagement rate per video uploaded?
+
+## Dashboard mockup
+* What should the dashboard look like and what should it contain?
+
+To answer the questions listed above, we can use a variety of visualisations, such as:
+1. Table
+2. Treemap
+3. Scorecards
+4. Horizontal bar chart
+5. Filters
+
+# Development
+
+# Testing
+
+# Analysis
