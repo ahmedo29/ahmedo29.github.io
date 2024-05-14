@@ -205,12 +205,12 @@ FROM view_uk_youtubers;
 ```sql
 /*
 # Count the total number of columns in the SQL view (Expected 4)
+*/
 
 SELECT 
 	COUNT(*) AS column_count
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'view_uk_youtubers';
-*/
 ```
 ### Output
 ![column_count_check](assets/images/column_count_check)
@@ -220,13 +220,13 @@ WHERE TABLE_NAME = 'view_uk_youtubers';
 ```sql
 /*
 # Checks the data type of each column from the view
-
+*/
 SELECT 
 	COLUMN_NAME,
 	DATA_TYPE
 FROM INFORMATION_SCHEMA.COLUMNS
 WHERE TABLE_NAME = 'view_uk_youtubers';
-*/
+
 ```
 ### Output
 ![data_type_check](assets/images/data_type_check)
@@ -238,6 +238,7 @@ WHERE TABLE_NAME = 'view_uk_youtubers';
 # 1. Checks for duplicate rows in the view
 # 2. Groups by the channel name
 # 3. Filters for groups with more than one row
+*/
 
 SELECT
 	channel_name,
@@ -245,7 +246,7 @@ SELECT
 FROM view_uk_youtubers
 GROUP BY channel_name
 HAVING COUNT(*) > 1;
-*/
+
 ```
 ### Output
 ![duplicate_count_check](assets/images/duplicate_count_check)
