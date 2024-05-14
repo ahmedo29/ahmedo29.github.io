@@ -402,3 +402,244 @@ There were several key questions we needed to answer for our marketing client:
 | 2    | Jessie J        | 110,416.67                  |
 | 3    | Dua Lipa        | 104,954.95                  |
 
+
+## Validation 
+
+### 1. Youtubers with the most subscribers 
+
+#### Calculation breakdown
+
+Campaign idea = product placement 
+
+1. NoCopyrightSounds 
+- Average views per video = 6.92 million
+- Product cost = $5
+- Potential units sold per video = 6.92 million x 2% conversion rate = 138,400 units sold
+- Potential revenue per video = 138,400 x $5 = $692,000
+- Campaign cost (one-time fee) = $50,000
+- **Net profit = $692,000 - $50,000 = $642,000**
+
+b. DanTDM
+
+- Average views per video = 5.34 million
+- Product cost = $5
+- Potential units sold per video = 5.34 million x 2% conversion rate = 106,800 units sold
+- Potential revenue per video = 106,800 x $5 = $534,000
+- Campaign cost (one-time fee) = $50,000
+- **Net profit = $534,000 - $50,000 = $484,000**
+
+c. Dan Rhodes
+
+- Average views per video = 11.15 million
+- Product cost = $5
+- Potential units sold per video = 11.15 million x 2% conversion rate = 223,000 units sold
+- Potential revenue per video = 223,000 x $5 = $1,115,000
+- Campaign cost (one-time fee) = $50,000
+- **Net profit = $1,115,000 - $50,000 = $1,065,000**
+
+
+Best option from category: Dan Rhodes
+
+#### SQL query 
+
+```sql
+/* 
+
+# 1. Define variables 
+# 2. Create a CTE that rounds the average views per video 
+# 3. Select the column you need and create calculated columns from existing ones 
+# 4. Filter results by Youtube channels
+# 5. Sort results by net profits (from highest to lowest)
+
+*/
+
+
+-- 1. Defining the variables
+DECLARE @conversionRate FLOAT = 0.02;			-- Conversion rate at 2%
+DECLARE @productCost MONEY = 5.0;			-- Product cost at $5
+DECLARE @campaignCost MONEY = 50000.0;			-- Campaign cost at $50,000
+
+-- 2.
+WITH ChannelData AS (
+    SELECT
+        channel_name,
+        total_videos,
+        total_views,
+        ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
+    FROM view_uk_youtubers
+)
+
+-- 3. Select columns appropriate for the analsis
+SELECT
+	channel_name,
+	rounded_avg_views_per_video,
+	(rounded_avg_views_per_video * @conversionRate) AS potential_product_sales_per_video,
+	(rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
+	(rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost AS net_profit
+FROM ChannelData
+-- 4.
+WHERE channel_name IN ('NoCopyRightSounds', 'DanTDM', 'Dan Rhodes')
+--5.
+ORDER BY net_profit DESC;
+
+```
+
+#### Output
+
+### 2. Youtubers with the most videos uploaded
+
+### Calculation breakdown 
+
+Campaign idea = sponsored video series  
+
+1. GRM Daily
+- Average views per video = 510,000
+- Product cost = $5
+- Potential units sold per video = 510,000 x 2% conversion rate = 10,200 units sold
+- Potential revenue per video = 10,200 x $5= $51,000
+- Campaign cost (11-videos @ $5,000 each) = $55,000
+- **Net profit = $51,000 - $55,000 = -$4,000 (potential loss)**
+
+b. **Manchester City**
+
+- Average views per video = 240,000
+- Product cost = $5
+- Potential units sold per video = 240,000 x 2% conversion rate = 4,800 units sold
+- Potential revenue per video = 4,800 x $5= $24,000
+- Campaign cost (11-videos @ $5,000 each) = $55,000
+- **Net profit = $24,000 - $55,000 = -$31,000 (potential loss)**
+
+b. **Yogscast**
+
+- Average views per video = 710,000
+- Product cost = $5
+- Potential units sold per video = 710,000 x 2% conversion rate = 14,200 units sold
+- Potential revenue per video = 14,200 x $5= $71,000
+- Campaign cost (11-videos @ $5,000 each) = $55,000
+- **Net profit = $71,000 - $55,000 = $16,000 (profit)**
+
+
+Best option from category: Yogscast
+
+#### SQL query 
+```sql
+/* Total Video Analysis
+
+1. Define the variables
+2. Create a CTE that rounds the averages views per video
+3. Select columns appropriate for the analysis
+4. Filter results by the YouTube channels with the highest number of videos uploaded
+5. Order by net_profit (from highest to lowest)
+
+*/
+
+DECLARE @conversionRate FLOAT = 0.02;		-- Conversion rate at 2%
+DECLARE @productCost MONEY = 5.0;			-- Product cost at $5
+DECLARE @campaignCost MONEY = 55000.0;	-- Campaign cost at $50,000
+
+-- 2.
+WITH ChannelData AS (
+    SELECT
+        channel_name,
+        total_videos,
+        total_views,
+        ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
+    FROM view_uk_youtubers
+)
+
+-- 3. Select columns appropriate for the analysis
+SELECT
+	channel_name,
+	rounded_avg_views_per_video,
+	(rounded_avg_views_per_video * @conversionRate) AS potential_product_sales_per_video,
+	(rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
+	(rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost AS net_profit
+FROM ChannelData
+-- 4.
+WHERE channel_name IN ('GRM Daily', 'Man City', 'YOGSCAST Lewis & Simon')
+--5.
+ORDER BY net_profit DESC;
+
+```
+
+#### Output
+
+### 3.  Youtubers with the most views 
+
+#### Calculation breakdown
+
+Campaign idea = Influencer marketing 
+
+a. DanTDM
+
+- Average views per video = 5.34 million
+- Product cost = $5
+- Potential units sold per video = 5.34 million x 2% conversion rate = 106,800 units sold
+- Potential revenue per video = 106,800 x $5 = $534,000
+- Campaign cost (3-month contract) = $130,000
+- **Net profit = $534,000 - $130,000 = $404,000**
+
+b. Dan Rhodes
+
+- Average views per video = 11.15 million
+- Product cost = $5
+- Potential units sold per video = 11.15 million x 2% conversion rate = 223,000 units sold
+- Potential revenue per video = 223,000 x $5 = $1,115,000
+- Campaign cost (3-month contract) = $130,000
+- **Net profit = $1,115,000 - $130,000 = $985,000**
+
+c. Mister Max
+
+- Average views per video = 14.06 million
+- Product cost = $5
+- Potential units sold per video = 14.06 million x 2% conversion rate = 281,200 units sold
+- Potential revenue per video = 281,200 x $5 = $1,406,000
+- Campaign cost (3-month contract) = $130,000
+- **Net profit = $1,406,000 - $130,000 = $1,276,000**
+
+Best option from category: Mister Max
+
+
+
+#### SQL query 
+```sql
+/* Total Views Analysis
+
+1. Define the variables
+2. Create a CTE that rounds the averages views per video
+3. Select columns appropriate for the analysis
+4. Filter results by the YouTube channels with the highest number of views
+5. Order by net_profit (from highest to lowest)
+
+*/
+
+DECLARE @conversionRate FLOAT = 0.02;		-- Conversion rate at 2%
+DECLARE @productCost MONEY = 5.0;			-- Product cost at $5
+DECLARE @campaignCost MONEY = 130000.0;	-- Campaign cost at $50,000
+
+-- 2.
+WITH ChannelData AS (
+    SELECT
+        channel_name,
+        total_videos,
+        total_views,
+        ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
+    FROM view_uk_youtubers
+)
+
+-- 3. Select columns appropriate for the analysis
+SELECT
+	channel_name,
+	rounded_avg_views_per_video,
+	(rounded_avg_views_per_video * @conversionRate) AS potential_product_sales_per_video,
+	(rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
+	(rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost AS net_profit
+FROM ChannelData
+-- 4.
+WHERE channel_name IN ('Dan Rhodes', 'DanTDM', 'Mister Max')
+--5.
+ORDER BY net_profit DESC;
+
+```
+
+#### Output
