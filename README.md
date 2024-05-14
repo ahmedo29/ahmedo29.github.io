@@ -43,14 +43,18 @@ The ideal solution would be o create a dashboard that provides relevant insights
 
 This will help the marketing team make data driven decisions about which YouTubers are best to collaborate with for their marketing campaigns.
 
+# User story
+
+As the Head of Marketing, I want to identify the top UK Youtubers based on their subscriber count, number of videos uploaded, and views accumulated, so that I can decide on which channels would be best to run marketing campaigns with to generate a good return on investment.
+
 # Data Source
-* What data is needed to achieve the objectives for this project?
-We need data on the top UK YouTubers in 2024, which include several key information, such as;
-* channel name
-* total subscribers
-* total views
-* total videos uploaded
-* the data has been sources from Kaggle, [click here to find the data](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
+What data is needed to achieve the objectives for this project?
+* We need data on the top UK YouTubers in 2024, which include several key information, such as;
+** channel name
+** total subscribers
+** total views
+** total videos uploaded
+** the data has been sources from Kaggle, [click here to find the data](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
 
 # Stages
 The stages for this project will be;
@@ -94,7 +98,7 @@ To answer the questions listed above, we can use a variety of visualisations, su
 | GitHub | Hosting the project documentation and version control |
 
 # Development
-## Tools
+## Pseudocode
 What is the approach you will use to create a solution from start to finish?
 
 1. Get the data
