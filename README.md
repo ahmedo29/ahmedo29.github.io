@@ -44,5 +44,13 @@ The ideal solution would be o create a dashboard that provides relevant insights
 This will help the marketing team make data driven decisions about which YouTubers are best to collaborate with for their marketing campaigns.
 
 # Data Source
+* What data is needed to achieve the objectives for this project?
+We need data on the top UK YouTubers in 2024, which include several key information, such as;
+* channel name
+* total subscribers
+* total views
+* total videos uploaded
 
+* Where is the data coming from?
+The data has been sources from Kaggle, [click here to find the data](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
 # Stages
