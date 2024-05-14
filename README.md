@@ -256,4 +256,4 @@ HAVING COUNT(*) > 1;
 ## Results
 The dashboard looks as below:
 
-![Dashboard](assets/images/dashboard.png)
+![Dashboard](assets/images/Dashboard.png)
