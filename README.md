@@ -250,3 +250,10 @@ HAVING COUNT(*) > 1;
 ```
 ### Output
 ![duplicate_count_check](assets/images/duplicate_count_check.png)
+
+# Visualisation
+
+## Results
+The dashboard looks as below:
+
+![Dashboard](assets/images/dashboard.png)
