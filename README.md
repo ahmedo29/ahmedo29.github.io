@@ -486,6 +486,8 @@ ORDER BY net_profit DESC;
 
 #### Output
 
+![highest_subs](assets/images/highest_subs.png)
+
 ### 2. Youtubers with the most videos uploaded
 
 ### Calculation breakdown 
@@ -563,6 +565,8 @@ ORDER BY net_profit DESC;
 ```
 
 #### Output
+
+![highest_vids](assets/images/highest_vids.png)
 
 ### 3.  Youtubers with the most views 
 
@@ -643,3 +647,5 @@ ORDER BY net_profit DESC;
 ```
 
 #### Output
+
+![total_views](assets/images/total_views.png)
