@@ -168,16 +168,84 @@ Creating a view allows us to only work with the data we need for our analysis
 # 3. SELECT only the required columns from the top_uk_youtubers database
 */
 
+--1.
 CREATE VIEW view_uk_youtubers AS
 
+--2.
 SELECT
 	CAST(SUBSTRING(nombre, 1, CHARINDEX('@', nombre) -1) AS VARCHAR(100)) AS channel_name,
 	total_subscribers,
 	total_views,
 	total_videos
+
+-- 3.
 FROM top_uk_youtubers;
 ```
 
 # Testing
+Data quality and validation tests I conducted are as below:
 
-# Analysis
+## Row count check
+### SQL Query
+```sql
+/*
+# Count the total number of rows / records in the SQL View (Expected 100)
+
+SELECT
+	COUNT(*) as row_count
+FROM view_uk_youtubers;
+
+*/
+```
+### Output
+
+
+
+## Row count check
+### SQL Query
+```sql
+/*
+# Count the total number of columns in the SQL view (Expected 4)
+
+SELECT 
+	COUNT(*) AS column_count
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'view_uk_youtubers';
+*/
+```
+### Output
+
+
+## Data type check
+### SQL Query
+```sql
+/*
+# Checks the data type of each column from the view
+
+SELECT 
+	COLUMN_NAME,
+	DATA_TYPE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'view_uk_youtubers';
+*/
+```
+### Output
+
+
+## Duplicate count check
+### SQL Query
+```sql
+/*
+# 1. Checks for duplicate rows in the view
+# 2. Groups by the channel name
+# 3. Filters for groups with more than one row
+
+SELECT
+	channel_name,
+	COUNT(*) AS duplicate_count
+FROM view_uk_youtubers
+GROUP BY channel_name
+HAVING COUNT(*) > 1;
+*/
+```
+### Output
