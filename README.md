@@ -1,5 +1,7 @@
 # Top UK YouTubers
 
+![GIF of Power BI Dashboard](assets/images/dashboard_gif.gif)
+
 # Table of Contents
 
 - [Objective](#objective)
