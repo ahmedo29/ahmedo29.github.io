@@ -50,11 +50,11 @@ As the Head of Marketing, I want to identify the top UK Youtubers based on their
 # Data Source
 What data is needed to achieve the objectives for this project?
 * We need data on the top UK YouTubers in 2024, which include several key information, such as;
-** channel name
-** total subscribers
-** total views
-** total videos uploaded
-** the data has been sources from Kaggle, [click here to find the data](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
+  * channel name
+  * total subscribers
+  * total views
+  * total videos uploaded
+  * the data has been sources from Kaggle, [click here to find the data](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
 
 # Stages
 The stages for this project will be;
