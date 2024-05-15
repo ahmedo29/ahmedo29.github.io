@@ -260,7 +260,7 @@ HAVING COUNT(*) > 1;
 ## Results
 The dashboard looks as below:
 
-![Dashboard](assets/images/Dashboard.png)
+![GIF of Power BI Dashboard](assets/images/dashboard_gif.gif)
 
 # Visualisation
 
